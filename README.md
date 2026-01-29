@@ -1,1 +1,22 @@
 # NodeJS DevOps Project
+
+-create a folder structure
+-create git repo
+-install Dependencies (npm init -y, npm install express dotenv, npm install --save-dev nodemon)
+-Config Setup
+-Express App Setup
+-Server Setup
+-Routes, Controllers
+-Middleware
+-Git Ignore
+-package.json Scripts
+-Run App, Test APIs
+-Install Quality Tools (npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier)
+-Initialize ESLint (npx eslint --init)
+-Configure ESLint 
+-Setup Prettier
+-Add Scripts, Run Quality Tools (npm run lint, npm run format)
+-Install Testing Tools (npm install --save-dev jest supertest)
+-Setup Jest
+-Write Test, Add Test Script
+-Run Tests
