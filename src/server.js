@@ -1,9 +1,8 @@
 const app = require('./app');
 
-const config = require('./config/conig.js');
+const PORT = process.env.PORT || 7272;
 
-app.listen(config.PORT, () => {
+app.listen(PORT, () => {
 
-    console.log(`server is running on port ${config.PORT}`);
-
+    console.log(`server is running on port ${PORT}`);
 });
