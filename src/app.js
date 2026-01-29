@@ -10,5 +10,4 @@ app.use(express.json());
 app.use(logger);
 app.use('/api', apiRoutes);
 
-
 module.exports = app;

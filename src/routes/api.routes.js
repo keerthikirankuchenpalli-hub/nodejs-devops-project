@@ -6,10 +6,8 @@ const controller = require('../controllers/api.controller.js');
 
 router.get('/data', controller.getData);
 
-router.get( '/message', controller.getMessage);
+router.get('/message', controller.getMessage);
 
 router.post('/login', controller.loginUser);
 
-
-
-module.exports = router;  
+module.exports = router;
