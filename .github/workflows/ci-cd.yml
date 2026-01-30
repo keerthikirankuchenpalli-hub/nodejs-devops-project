@@ -3,7 +3,8 @@ name: NodeJS CI/CD Pipeline
 on:
   push:
     branches:
-      - Developer
+    - backend-base
+
 
 jobs:
   build-test-deploy:
