@@ -1,12 +1,15 @@
 # Terraform
+terraform/
 .terraform/
 *.tfstate
 *.tfstate.*
-.crash.log
 terraform.tfvars
-*.tfvars
+*.pem
+.env
 
 # Node
 node_modules/
+
+
 
 
