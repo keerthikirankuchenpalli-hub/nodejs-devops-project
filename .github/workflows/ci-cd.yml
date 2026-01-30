@@ -3,7 +3,8 @@ name: NodeJS CI/CD Pipeline
 on:
   push:
     branches:
-      - Developer
+    - backend-base
+
 
 jobs:
   build-test-deploy:
@@ -33,9 +34,12 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
+          port: 22
+          debug: true
           script: |
             sudo docker stop nodejs-app || true
             sudo docker rm nodejs-app || true
             sudo docker rmi nodejs-devops-app || true
             sudo docker build -t nodejs-devops-app .
-            sudo docker run -d -p 80:3000 --name nodejs-app nodejs-devops-app
+            sudo docker run -d -p 7272:7272 --name nodejs-devops-app
+
