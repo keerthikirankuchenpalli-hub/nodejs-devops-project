@@ -1,0 +1,41 @@
+name: NodeJS CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - Developer
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build Docker image
+        run: docker build -t nodejs-devops-app .
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_KEY }}
+          script: |
+            sudo docker stop nodejs-app || true
+            sudo docker rm nodejs-app || true
+            sudo docker rmi nodejs-devops-app || true
+            sudo docker build -t nodejs-devops-app .
+            sudo docker run -d -p 80:3000 --name nodejs-app nodejs-devops-app
