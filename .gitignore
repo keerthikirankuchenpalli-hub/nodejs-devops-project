@@ -6,6 +6,7 @@ terraform/
 terraform.tfvars
 *.pem
 .env
+nodejs-prod-key.pem
 
 # Node
 node_modules/
